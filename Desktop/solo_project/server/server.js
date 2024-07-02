@@ -27,7 +27,7 @@ app.use(express.urlencoded({extended: false}));
 
 // mongodb connection
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@yoga-class.ksudmok.mongodb.net/?retryWrites=true&w=majority&appName=yoga-class`;
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@yoga-class.ksudmok.mongodb.net/?retryWrites=true&w=majority&appName=yoga-class/`;
 mongoose.connect(uri)
 
 
@@ -82,8 +82,8 @@ run().catch(console.dir);
 //src\server\server.js
 //C:\Users\ghkds\Desktop\solo_project\src\server\server.js
 app.use('/', express.static(path.join(__dirname, '../build')))
-// app.use('/', express.static(path.join(__dirname, '../styles/style.css')))
-console.log('dir', path.join(__dirname, '../build'))
+//app.use('/', express.static(path.join(__dirname, '../styles/style.css')))
+// console.log('dir', path.join(__dirname, '../build'))
 
 app.get('/', (req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, './index.html'))
@@ -105,14 +105,21 @@ app.post('/signup', userController.createUser, (req, res) => {
 })
 // app.post('/login', userController.verifyUser, (req, res) => {
 app.post('/login', (req, res) => {
-  res.status(200).send('login successfully')
+  return res.status(200).send('login successfully')
 })
 
+// console.log('where?' ,path.resolve(__dirname, '../client/scripts/class.html'))
+
+
 app.get('/class', classController.getClass, (req, res) => {
-  return res.status(200).send(res.locals.allClasses)
+  return res.status(200).json(res.locals.allClasses)
 })
+app.get('/class', (req, res) => {
+  return res.status(200).sendFile(path.resolve(__dirname, '../client/scripts/class.html'))
+})
+
 app.get('/class/:sort', classController.availableClass, (req, res) => {
-  return res.status(200).send(res.locals.available)
+  return res.status(200).json(res.locals.available).sendFile(path.resolve(__dirname, '../client/scripts/class.html'))
 })
 app.post('/new-class', classController.createClass, (req, res) => {
   return res.status(201).json(res.locals.newClass)

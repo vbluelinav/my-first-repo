@@ -1,13 +1,14 @@
 import React from 'react';
-import MainContainer from './MainContainers.jsx'
+import ClassContainer from './ClassContainers.jsx'
 import MainLayout from './MainLayout.jsx'
 
 
 export default function App () {
     return (
-        <div>
+        <div className= "app">
             {/* <MainContainer/> */}
-            <MainLayout />
+            {/* <MainLayout /> */}
+            <ClassContainer/>
         </div>
     );
 }
