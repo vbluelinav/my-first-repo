@@ -85,9 +85,10 @@ app.use('/', express.static(path.join(__dirname, '../build')))
 //app.use('/', express.static(path.join(__dirname, '../styles/style.css')))
 // console.log('dir', path.join(__dirname, '../build'))
 
-app.get('/', (req, res) => {
+app.get('/', classController.getClass, (req, res) => {
   res.status(200).sendFile(path.resolve(__dirname, './index.html'))
 })
+
 
 // app.get('/', (req, res) => {
 //   res.status(200).sendFile(path.resolve(__dirname, '../styles/style.css'))
@@ -104,23 +105,31 @@ app.post('/signup', userController.createUser, (req, res) => {
   res.status(200).json(res.locals.newUser)
 })
 // app.post('/login', userController.verifyUser, (req, res) => {
-app.post('/login', (req, res) => {
+app.get('/login', (req, res) => {
   return res.status(200).send('login successfully')
 })
 
+app.get('/about', (req, res)=> {
+  return res.status(200).send('check out our instagram')
+})
+
+app.get('/instructor', (req, res)=> {
+  return res.status(200).send('check out our instagram')
+})
 // console.log('where?' ,path.resolve(__dirname, '../client/scripts/class.html'))
 
 
 app.get('/class', classController.getClass, (req, res) => {
   return res.status(200).json(res.locals.allClasses)
 })
-app.get('/class', (req, res) => {
-  return res.status(200).sendFile(path.resolve(__dirname, '../client/scripts/class.html'))
+// app.get('/class', (req, res) => {
+//   return res.status(200).sendFile(path.resolve(__dirname, '../client/scripts/class.html'))
+// })
+
+app.get('/class/:id', classController.getClassId, (req, res) => {
+  return res.status(200).json(res.locals.classId);
 })
 
-app.get('/class/:sort', classController.availableClass, (req, res) => {
-  return res.status(200).json(res.locals.available).sendFile(path.resolve(__dirname, '../client/scripts/class.html'))
-})
 app.post('/new-class', classController.createClass, (req, res) => {
   return res.status(201).json(res.locals.newClass)
 })

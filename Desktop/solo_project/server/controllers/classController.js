@@ -7,7 +7,8 @@ classController.getClass = async(req, res, next) => {
     try{
     const allClasses = await Class.find({});
     res.locals.allClasses = allClasses;
-    console.log(allClasses)
+    // console.log(allClasses)
+    // res.sendFile(path.resolve(__dirname, '../client/scripts/class.html'))
     return next();
     }catch(error) {
         return next({error: 'error found from classController.getClass middleware'})
@@ -77,12 +78,30 @@ return next({error: 'Update failed'})
 }
 
 res.locals.updateClass = result;
-next();
+return next();
 
 } catch(error) {
 return next({error: 'error found from classController.updateClass middleware'})
 }
 }
+
+classController.getClassId = async(req, res, next) => {
+    const id = req.params.id
+    console.log('what is id in backend', id)
+    if(!id) {
+        return next({error : 'class ID is not found'})
+    }
+    try {
+    const classId = await Class.findOne({_id: id})
+    console.log('found class', classId)
+    if(!classId) {
+        return next({error: 'there is no matching class info'})
+    };
+    res.locals.classId = classId;
+    return next()
+}catch (error) {
+    return next({error: 'error found from classController.getClassId middleware'})
+}}
 
 
 module.exports = classController;
