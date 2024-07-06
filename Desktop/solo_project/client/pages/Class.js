@@ -3,10 +3,11 @@ import ClassContainers from '../components/ClassContainers.jsx'
 
 export default function Class () {
     return (
-        <>
-        <h2>Class</h2>
+        <div className = "pageContainer">
+        <div className= "textContainer">
+        <h1 className ="pageTitle">Classes</h1>
+        </div>
         <ClassContainers />
-    
-        </>
+        </div>
     )
 }

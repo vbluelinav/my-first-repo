@@ -4,20 +4,19 @@ import React from 'react';
 
 export default function Home() {
     return (
-        <div>
-        <h2>Home Page</h2>
+
         <div className="mainContainer">
-        <div className="mainPicture">
-        
-        </div>
-        <div className="mainOpening">
+        {/* <div className="mainOpening"> */}
+            <div className = "welcomeText">
+            <h3>
+                Awake your Mind and Spirit with 
+            </h3>
             <h1>
-                Fresh Start Everyday
-                New Mind
+                Harmony & yoga
             </h1>
             <p>Keep your body healthy and active</p>
+            </div>
         </div>
-        </div>
-        </div>
+
     )
 }

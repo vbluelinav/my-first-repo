@@ -47,11 +47,12 @@ body {
 
 .logo {
     display: flex;
-    align-content: center;
+    align-content: center;  
     border-radius: 50%;
     height: 2rem;
     width: 2rem;
     border: none;
+    text-shadow: 2px 2px 2px white
 }
 
 .site-title{
@@ -87,25 +88,252 @@ body {
     background-color: #f7f1f5cc;
 }
 
-
+/* container design for Home page container*/
 .mainContainer {
-    height: 90%;
-    width: 90%;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-.mainPicture {
-    background-image:url(https://images.pexels.com/photos/2985098/pexels-photo-2985098.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
-}
-
-.mainOpening {
+    height: 90vh;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+    background-image:url('https://images.pexels.com/photos/2985098/pexels-photo-2985098.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding: 30px 30px;
     justify-content: center;
     align-items: center;
-    background-color: burlywood;
-    color:darkslategrey;
+    color:black;
 }
+
+.welcomeText {
+    display: inline;
+    font-style: italic; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-shadow: 2px 2px 2px rgb(240, 233, 233);
+}
+
+
+/* Page Design */
+.pageContainer {
+    height: 100vh;
+    width: 100%;
+    /* background-color: yellow; */
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px;
+    display:block;
+}
+
+/* container for each classContainer  */
+.classContainer {
+        width: 100%;
+        height: 100%; 
+        border: 3px solid pink; 
+        display:flex;
+        padding: 20px 20px;
+        justify-content: space-between;
+        gap: 10px;
+}
+
+
+/* Card container styling*/
+.cardContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+
+.item {
+    background-color: #eeedf3;
+    padding: 20px;
+    text-align: center;
+    border: red 2px solid;
+}
+
+.textContainer {
+    text-align: center;
+
+}
+.pageTitle {
+    display: inline-block;
+    justify-items: center;
+    padding: 10px 10px;
+    font-size: 40px;
+    font-style: italic;
+    gap: 10px;
+    
+}
+
+.card {
+    border: solid 2px black;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    height: 20rem;
+    width: 20rem;
+    padding: 20px;
+    box-shadow: black;
+}
+
+.card:hover {
+    background-color:#e4e1f2;
+    border: rgb(175, 10, 240) solid 4px;
+    transition-duration: 1s;
+    transform :translate(5)
+}
+
+/*styling for images in each Card component*/
+.imageStyle {
+    display:block;
+    height: 7rem;
+    width: 100%;
+    overflow: hidden;
+    border: rgb(232, 25, 183) solid 2px;
+    justify-content: center;
+    align-items: center;
+}
+
+.classImage {
+    display:block;
+    height: 100%;
+    width: 100%;
+    border: blue solid 2px;
+    justify-content:center;
+    align-items: center;
+}
+
+.classButton {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 15px;
+}
+
+.aboutImg {
+    display:inline-block;
+    height: 90%;
+    width: 90%;
+    padding: 20px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutPic {
+    display: block;
+    height: 100%;
+    width:100%;
+    margin: 15px 15px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.aboutText {
+    display: inline-block;
+    padding:25px;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.cardOption {
+    visibility: hidden;
+}
+
+.loginContainer {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background:bisque;
+}
+
+.wrapper {
+    width: 420px;
+    background: #c0855c;
+    color: black;
+    border-radius: 10px;
+    padding:30px 40px;
+}
+
+.wrapper h1  {
+    font-size: 36px;
+    text-align: center;
+    color: black;
+}
+
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background: beige;
+    margin: 30px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    border: 2px solid rgba(255,255,255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color:black;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+    color: black;
+}
+
+.wrapper .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+
+
+.remember-forgot label input {
+accent-color: efff;
+margin-right: 4px;
+
+}
+
+.remember-forgot a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.wrapper button {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px reba(0,0,0, .1);
+    cursor: pointer;
+    font-size: 16px; 
+    color: #333;
+    font-weight: 700;
+}
+/* .input-box icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translate(-50%);
+    font-size: 16px;
+
+} */
+
+
 /* 
 .app {
     height: 100%;

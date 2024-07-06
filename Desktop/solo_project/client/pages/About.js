@@ -1,10 +1,11 @@
 import React from 'react'
+import AboutPage from '../components/AboutPage.jsx'
 
 
 export default function About () {
     return (
-        <>
-        <h2>About</h2>
-        </>
+        <div className = 'pageContainer'>
+        <AboutPage />
+        </div>
     )
 }

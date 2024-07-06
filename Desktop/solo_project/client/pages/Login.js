@@ -1,11 +1,10 @@
 import React from 'react';
 // import NavBar from '../components/headers/NavBar.jsx'
-
+import LoginPage from '../components/LoginPage.jsx'
 export default function Login () {
     return (
-        <>
-    
-        <h2>LogIn Page</h2>
-        </>
+        <div className ="loginContainer">
+        <LoginPage />
+        </div>
     )
 }

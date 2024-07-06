@@ -106,7 +106,7 @@ app.post('/signup', userController.createUser, (req, res) => {
 })
 // app.post('/login', userController.verifyUser, (req, res) => {
 app.get('/login', (req, res) => {
-  return res.status(200).send('login successfully')
+  return res.status(200).redirect('/')
 })
 
 app.get('/about', (req, res)=> {
@@ -118,6 +118,9 @@ app.get('/instructor', (req, res)=> {
 })
 // console.log('where?' ,path.resolve(__dirname, '../client/scripts/class.html'))
 
+app.get('/class/:id', classController.getClassId, (req, res) => {
+  return res.status(200).json(res.locals.classId);
+})
 
 app.get('/class', classController.getClass, (req, res) => {
   return res.status(200).json(res.locals.allClasses)
@@ -126,9 +129,6 @@ app.get('/class', classController.getClass, (req, res) => {
 //   return res.status(200).sendFile(path.resolve(__dirname, '../client/scripts/class.html'))
 // })
 
-app.get('/class/:id', classController.getClassId, (req, res) => {
-  return res.status(200).json(res.locals.classId);
-})
 
 app.post('/new-class', classController.createClass, (req, res) => {
   return res.status(201).json(res.locals.newClass)
